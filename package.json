@@ -1,6 +1,6 @@
 {
   "name": "web-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -26,10 +26,6 @@
     "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ctrlplusb/react-universally/issues"
-  },
-  "homepage": "https://github.com/ctrlplusb/react-universally#readme",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
