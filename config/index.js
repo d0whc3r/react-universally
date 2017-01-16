@@ -14,7 +14,10 @@ import type { BuildOptions } from '../tools/types';
 // This protects us from accidentally including this configuration in our
 // client bundle. That would be a big NO NO to do. :)
 if (process.env.IS_CLIENT) {
-  throw new Error("You shouldn't be importing the `./config` directly into your 'client' or 'shared' source as the configuration object will get included in your client bundle. Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the 'client' or 'shared' source files to reference configuration values in a safe manner.");
+  throw new Error('You shouldn\'t be importing the `./config` directly into your \'client\' or \'shared\''
+    + ' source as the configuration object will get included in your client bundle.'
+    + ' Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`)'
+    + ' within the \'client\' or \'shared\' source files to reference configuration values in a safe manner.');
 }
 
 const config = {
@@ -79,7 +82,7 @@ const config = {
     'ttf',
     'woff',
     'woff2',
-    'otf',
+    'otf'
   ],
 
   // What should we name the json output file that webpack generates
@@ -98,7 +101,7 @@ const config = {
     manifestSrc: [],
     objectSrc: [],
     scriptSrc: [],
-    styleSrc: [],
+    styleSrc: []
   },
 
   // node_modules are not included in any bundles that target "node" as a runtime
@@ -110,7 +113,7 @@ const config = {
     /\.(eot|woff|woff2|ttf|otf)$/,
     /\.(svg|png|jpg|jpeg|gif|ico)$/,
     /\.(mp4|mp3|ogg|swf|webp)$/,
-    /\.(css|scss|sass|sss|less)$/,
+    /\.(css|scss|sass|sss|less)$/
   ],
 
   // Note: you can only have a single service worker instance.  Our service
@@ -132,14 +135,14 @@ const config = {
       // You may or may not want to be including these assets.  Feel free
       // to remove this or instead include only a very specific set of
       // assets.
-      './**/*',
+      './**/*'
     ],
     // Path to the template used by HtmlWebpackPlugin to generate an offline
     // page that will be used by the service worker to render our application
     // offline.
     offlinePageTemplate: './tools/webpack/offlinePage',
     // Offline page file name.
-    offlinePageFileName: 'offline.html',
+    offlinePageFileName: 'offline.html'
   },
 
   // We use the polyfill.io service which provides the polyfills that a
@@ -150,7 +153,7 @@ const config = {
   // gets parsed.
   polyfillIO: {
     enabled: true,
-    url: 'https://cdn.polyfill.io/v2/polyfill.min.js',
+    url: 'https://cdn.polyfill.io/v2/polyfill.min.js'
   },
 
   // Configuration for the HTML pages (headers/titles/scripts/css/etc).
@@ -163,7 +166,7 @@ const config = {
     meta: [
       {
         name: 'description',
-        content: 'A starter kit giving you the minimum requirements for a production ready universal react application.',
+        content: 'A starter kit giving you the minimum requirements for a production ready universal react application.'
       },
       // Default content encoding.
       { name: 'charset', content: 'utf-8' },
@@ -173,7 +176,7 @@ const config = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       // Providing a theme color is good if you are doing a progressive
       // web application.
-      { name: 'theme-color', content: '#2b2b2b' },
+      { name: 'theme-color', content: '#2b2b2b' }
     ],
     links: [
       // When building a progressive web application you need to supply
@@ -185,12 +188,12 @@ const config = {
       { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', sizes: '16x16' },
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#00a9d9' },
       // Make sure you update your manifest.json to match your application.
-      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'manifest', href: '/manifest.json' }
     ],
     scripts: [
       // Example:
       // { src: 'http://include.com/pathtojs.js', type: 'text/javascript' },
-    ],
+    ]
   },
 
   bundles: {
@@ -205,7 +208,7 @@ const config = {
         // The service worker offline page generation needs access to the
         // config folder.  Don't worry we have guards within the config files
         // to ensure they never get included in a client bundle.
-        './config',
+        './config'
       ],
 
       // Where does the client bundle output live?
@@ -236,12 +239,12 @@ const config = {
           'react',
           'react-dom',
           'react-helmet',
-          'react-router',
+          'react-router'
         ],
 
         // The name of the vendor DLL.
-        name: '__dev_vendor_dll__',
-      },
+        name: '__dev_vendor_dll__'
+      }
     },
 
     server: {
@@ -252,12 +255,12 @@ const config = {
       srcPaths: [
         './src/server',
         './src/shared',
-        './config',
+        './config'
       ],
 
       // Where does the server bundle output live?
-      outputPath: './build/server',
-    },
+      outputPath: './build/server'
+    }
   },
 
   additionalNodeBundles: {
@@ -273,16 +276,16 @@ const config = {
     // within the entry for each bundle you create and return the "express"
     // listener.
     /*
-    apiServer: {
-      srcEntryFile: './src/api/index.js',
-      srcPaths: [
-        './src/api',
-        './src/shared',
-        './config',
-      ],
-      outputPath: './build/api',
-    }
-    */
+     apiServer: {
+     srcEntryFile: './src/api/index.js',
+     srcPaths: [
+     './src/api',
+     './src/shared',
+     './config',
+     ],
+     outputPath: './build/api',
+     }
+     */
   },
 
   // These plugin definitions provide you with advanced hooks into customising
@@ -299,16 +302,16 @@ const config = {
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    babelConfig: (babelConfig : Object, buildOptions : BuildOptions) => {
+    babelConfig: (babelConfig: Object, buildOptions: BuildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
       // Example
       /*
-      if (target === 'server' && mode === 'development') {
-        babelConfig.presets.push('foo');
-      }
-     */
+       if (target === 'server' && mode === 'development') {
+       babelConfig.presets.push('foo');
+       }
+       */
 
       return babelConfig;
     },
@@ -322,27 +325,27 @@ const config = {
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    webpackConfig: (webpackConfig : Object, buildOptions : BuildOptions) => {
+    webpackConfig: (webpackConfig: Object, buildOptions: BuildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
       // Example:
       /*
-      if (target === 'server' && mode === 'development') {
-        webpackConfig.plugins.push(new MyCoolWebpackPlugin());
-      }
-      */
+       if (target === 'server' && mode === 'development') {
+       webpackConfig.plugins.push(new MyCoolWebpackPlugin());
+       }
+       */
 
       // Debugging/Logging Example:
       /*
-      if (target === 'server') {
-        console.log(JSON.stringify(webpackConfig, null, 4));
-      }
-      */
+       if (target === 'server') {
+       console.log(JSON.stringify(webpackConfig, null, 4));
+       }
+       */
 
       return webpackConfig;
-    },
-  },
+    }
+  }
 };
 
 // Export the client configuration object.
@@ -383,13 +386,13 @@ export const clientConfig = filterObject(
     welcomeMessage: true,
     // We only need to expose the enabled flag of the service worker.
     serviceWorker: {
-      enabled: true,
+      enabled: true
     },
     // We need to expose all the polyfill.io settings.
     polyfillIO: true,
     // We need to expose all the htmlPage settings.
     htmlPage: true,
-    additionalNodeBundles: true,
+    additionalNodeBundles: true
   },
 );
 

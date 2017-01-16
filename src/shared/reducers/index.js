@@ -18,7 +18,7 @@ export type State = {
 // REDUCER
 
 const rootReducer: Reducer<State, Action> = combineReducers({
-  posts,
+  posts
 });
 
 // -----------------------------------------------------------------------------

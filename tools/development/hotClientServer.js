@@ -28,12 +28,12 @@ class HotClientServer {
       quiet: true,
       noInfo: true,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': '*'
       },
       // Ensure that the public path is taken from the compiler webpack config
       // as it will have been created as an absolute path to avoid conflicts
       // with an node servers.
-      publicPath: compiler.options.output.publicPath,
+      publicPath: compiler.options.output.publicPath
     });
 
     app.use(this.webpackDevMiddleware);
@@ -47,7 +47,7 @@ class HotClientServer {
       log({
         title: 'client',
         level: 'info',
-        message: 'Building new bundle...',
+        message: 'Building new bundle...'
       });
     });
 
@@ -57,7 +57,7 @@ class HotClientServer {
           title: 'client',
           level: 'error',
           message: 'Build failed, please check the console for more information.',
-          notify: true,
+          notify: true
         });
         console.error(stats.toString());
       } else {
@@ -65,7 +65,7 @@ class HotClientServer {
           title: 'client',
           level: 'info',
           message: 'Running with latest changes.',
-          notify: true,
+          notify: true
         });
       }
     });

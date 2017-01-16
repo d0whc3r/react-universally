@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable import/prefer-default-export */
 
 import type { Post } from '../types/model';
 import type { Action, ThunkAction } from '../types/redux';
@@ -28,3 +27,5 @@ export function fetch(id: number) : ThunkAction {
       .then(() => true);
   };
 }
+
+export default fetch;

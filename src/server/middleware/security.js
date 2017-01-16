@@ -8,25 +8,25 @@ import config from '../../../config';
 
 const cspConfig = {
   directives: {
-    childSrc: ["'self'"],
+    childSrc: ['\'self\''],
     // Note: Setting this to stricter than * breaks the service worker. :(
     // I can't figure out how to get around this, so if you know of a safer
     // implementation that is kinder to service workers please let me know.
     connectSrc: ['*'], // ["'self'", 'ws:'],
-    defaultSrc: ["'self'"],
+    defaultSrc: ['\'self\''],
     imgSrc: [
-      "'self'",
+      '\'self\''
       // If you use Base64 encoded images (i.e. inlined images), then you will
       // need the following:
       // 'data:',
     ],
-    fontSrc: ["'self'"],
-    objectSrc: ["'self'"],
-    mediaSrc: ["'self'"],
-    manifestSrc: ["'self'"],
+    fontSrc: ['\'self\''],
+    objectSrc: ['\'self\''],
+    mediaSrc: ['\'self\''],
+    manifestSrc: ['\'self\''],
     scriptSrc: [
       // Allow scripts hosted from our application.
-      "'self'",
+      '\'self\'',
       // Allow scripts from cdn.polyfill.io so that we can import the polyfill.
       'cdn.polyfill.io',
       // Note: We will execution of any inline scripts that have the following
@@ -35,15 +35,15 @@ const cspConfig = {
       // script to do data store rehydration (redux/mobx/apollo) for example.
       // @see https://helmetjs.github.io/docs/csp/
       // $FlowFixMe
-      (req, res) => `'nonce-${res.locals.nonce}'`,
+      (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
-      "'self'",
+      '\'self\'',
       // Webpack generates JS that loads our CSS, so this is needed:
-      "'unsafe-inline'",
-      'blob:',
-    ],
-  },
+      '\'unsafe-inline\'',
+      'blob:'
+    ]
+  }
 };
 
 // Add any additional CSP from the static config.
@@ -122,7 +122,7 @@ const securityMiddleware = [
   // The CSP configuration is an optional item for helmet, however you should
   // not remove it without making a serious consideration that you do not
   // require the added security.
-  helmet.contentSecurityPolicy(cspConfig),
+  helmet.contentSecurityPolicy(cspConfig)
 ];
 
 export default (securityMiddleware : Array<Middleware>);

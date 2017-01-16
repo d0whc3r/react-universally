@@ -30,7 +30,7 @@ const assetsJSONResolver = () => (
     : assetsJSON
 );
 
-/**
+/*
  * Retrieves the js/css for the named chunks that belong to our client bundle.
  *
  * Note: the order of the chunk names is important. The same ordering will be

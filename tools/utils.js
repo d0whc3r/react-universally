@@ -23,13 +23,13 @@ export function happyPackPlugin({ name, loaders } : HappyPackConfig) {
     id: name,
     verbose: false,
     threads: 5,
-    loaders,
+    loaders
   });
 }
 
 // Removes the empty items from the given array.
 export function removeEmpty(x : Array<any>) : Array<any> {
-  return x.filter(y => y != null);
+  return x.filter(y => y !== null);
 }
 
 // This is a higher order function that accepts a boolean condition and will
@@ -103,7 +103,7 @@ export function log(options : NotificationOptions) {
   if (options.notify) {
     notifier.notify({
       title,
-      message: options.message,
+      message: options.message
     });
   }
 

@@ -13,7 +13,7 @@ import DemoApp from '../../../shared/components/DemoApp';
 import configureStore from '../../../shared/redux/configureStore';
 import config from '../../../../config';
 
-/**
+/*
  * An express middleware that is capabable of service our React application,
  * supporting server side rendering of the application.
  */
@@ -36,7 +36,7 @@ function reactApplicationMiddleware(request: $Request, response: $Response) {
     // rely on the client to initialize and render the react application.
     const html = generateHTML({
       // Nonce which allows us to safely declare inline scripts.
-      nonce,
+      nonce
     });
     response.status(200).send(html);
     return;
@@ -100,8 +100,8 @@ function reactApplicationMiddleware(request: $Request, response: $Response) {
       // application appropriately.
       jobsState: {
         state,
-        STATE_IDENTIFIER,
-      },
+        STATE_IDENTIFIER
+      }
     });
 
     // Get the render result from the server render context.

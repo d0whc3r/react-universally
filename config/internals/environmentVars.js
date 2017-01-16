@@ -28,7 +28,7 @@ function registerEnvFile() {
     path.resolve(userHome, '.config', pkg.name, `${envFile}.${envName}`),
     // Is there an environment config file in the executing user's home dir?
     // e.g. /Users/ctrlplusb/.config/react-universally/.env
-    path.resolve(userHome, '.config', pkg.name, envFile),
+    path.resolve(userHome, '.config', pkg.name, envFile)
   ];
 
   // Find the first env file path match.

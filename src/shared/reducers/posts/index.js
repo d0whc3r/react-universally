@@ -23,7 +23,7 @@ export type State = {
 
 const posts : Reducer<State, Action> = combineReducers({
   all,
-  byId,
+  byId
 });
 
 // -----------------------------------------------------------------------------

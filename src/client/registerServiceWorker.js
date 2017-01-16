@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
       // to ensure they are using the latest assets.
       // This only gets run if there were updates available for our cached assets.
       onUpdated: () => window.location.reload(),
-      onUpdateFailed: () => undefined,
+      onUpdateFailed: () => undefined
     });
   }
 }
