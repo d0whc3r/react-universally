@@ -1,6 +1,9 @@
+/* @flow */
+
 import uuid from 'uuid';
 import hpp from 'hpp';
 import helmet from 'helmet';
+import type { Middleware, $Request, $Response, NextFunction } from 'express';
 import config from '../../../config';
 
 const cspConfig = {
@@ -66,7 +69,7 @@ if (process.env.NODE_ENV === 'development') {
 // Attach a unique "nonce" to every response.  This allows use to declare
 // inline scripts as being safe for execution against our content security policy.
 // @see https://helmetjs.github.io/docs/csp/
-function nonceMiddleware(req, res, next) {
+function nonceMiddleware(req: $Request, res: $Response, next: NextFunction) {
   // eslint-disable-next-line no-param-reassign
   res.locals.nonce = uuid.v4();
   next();
@@ -122,4 +125,4 @@ const securityMiddleware = [
   helmet.contentSecurityPolicy(cspConfig),
 ];
 
-export default securityMiddleware;
+export default (securityMiddleware : Array<Middleware>);
