@@ -1,6 +1,13 @@
-import React, { PropTypes } from 'react';
+/* @flow */
 
-function Contributor({ name, twitter }) {
+import React from 'react';
+
+type Props = {
+  name: string,
+  twitter: string,
+};
+
+function Contributor({ name, twitter } : Props) {
   return (
     <a
       href={`https://twitter.com/${twitter}`}
@@ -11,10 +18,5 @@ function Contributor({ name, twitter }) {
     </a>
   );
 }
-
-Contributor.propTypes = {
-  name: PropTypes.string.isRequired,
-  twitter: PropTypes.string.isRequired,
-};
 
 export default Contributor;
