@@ -6,6 +6,7 @@
 .*/node_modules/fbjs/.*
 .*/node_modules/flow-remove-types/.*
 .*/node_modules/flow-coverage-report/.*
+.*/.*\.test.*
 
 [libs]
 

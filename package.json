@@ -1,7 +1,11 @@
 {
-  "name": "react-universally",
-  "version": "12.0.0",
-  "description": "A starter kit giving you the minimum requirements for a modern universal react application.",
+  "name": "web-react",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChinaCompare/web-react"
+  },
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
@@ -15,39 +19,12 @@
     "start": "cross-env NODE_ENV=production node build/server",
     "deploy": "babel-node tools/scripts/deploy",
     "lint": "eslint src",
-    "test": "jest",
+    "test": "node tools/scripts/tester --env=jsdom",
     "test:coverage": "jest --coverage",
     "flow": "babel-node tools/scripts/flow",
     "flow:defs": "flow-typed install --overwrite",
     "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctrlplusb/react-universally.git"
-  },
-  "keywords": [
-    "react",
-    "boilerplate",
-    "starter kit",
-    "universal",
-    "javascript",
-    "express",
-    "webpack"
-  ],
-  "contributors": [
-    "Alin Porumb",
-    "Benjamin Kniffler <bkniffler@me.com>",
-    "Carson Perrotti <carsonperrotti@gmail.com>",
-    "Christian Glombek <christian.glombek@rwth-aachen.de>",
-    "Christoph Werner",
-    "David Edmondson",
-    "Evgeny Boxer",
-    "Joe Kohlmann <kohlmannj@mac.com>",
-    "Lucian Lature <lucian.lature@gmail.com>",
-    "Steven Enten <steven@enten.fr>",
-    "Sean Matheson <sean@ctrlplusb.com>",
-    "Steven Truesdell <steven@strues.io>"
-  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ctrlplusb/react-universally/issues"
