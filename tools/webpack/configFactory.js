@@ -408,6 +408,15 @@ export default function webpackConfigFactory(buildOptions) {
         }),
       ),
 
+      ifDevClient(
+        () => happyPackPlugin({
+          name: 'happypack-devclient-scss',
+          loaders: [ 'style-loader!css-loader!sass-loader' ],
+          // cache: process.env.HAPPY_CACHE === '1',
+          // threads: 2
+        }),
+      ),
+
       // END: HAPPY PACK PLUGINS
       // -----------------------------------------------------------------------
 
@@ -600,6 +609,42 @@ export default function webpackConfigFactory(buildOptions) {
             // css loader, as we don't need any css files for the server.
             ifNode({
               loaders: ['css-loader/locals'],
+            }),
+          ),
+        ),
+
+        // CSS
+        // This is bound to our server/client bundles as we only expect to be
+        // serving the client bundle as a Single Page Application through the
+        // server.
+        ifElse(isClient || isServer)(
+          merge(
+            {
+              test: /\.scss$/,
+            },
+            // For development clients we will defer all our css processing to the
+            // happypack plugin named "happypack-devclient-css".
+            // See the respective plugin within the plugins section for full
+            // details on what loader is being implemented.
+            ifDevClient({
+              loaders: ['happypack/loader?id=happypack-devclient-scss'],
+            }),
+            // For a production client build we use the ExtractTextPlugin which
+            // will extract our CSS into CSS files. We don't use happypack here
+            // as there are some edge cases where it fails when used within
+            // an ExtractTextPlugin instance.
+            // Note: The ExtractTextPlugin needs to be registered within the
+            // plugins section too.
+            ifProdClient(() => ({
+              loader: ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: ['sass-loader', 'css-loader'],
+              }),
+            })),
+            // When targetting the server we use the "/locals" version of the
+            // css loader, as we don't need any css files for the server.
+            ifNode({
+              loaders: ['sass-loader', 'css-loader/locals'],
             }),
           ),
         ),
