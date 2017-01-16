@@ -5,32 +5,32 @@
 build/
 
 # Logs
-logs
+logs/
 *.log
 
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 
 # Coverage directory used by tools like istanbul
-coverage
+coverage/
 
 # node-waf configuration
 .lock-wscript
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-node_modules
+node_modules/
 
 # Debug log from npm
 npm-debug.log
 
 # IntelliJ IDE ignore
-.idea
+.idea/
 
 # Visual Studio Code
-.vscode
+.vscode/
 .history
 
 # flow-typed Lib Defs
@@ -40,4 +40,4 @@ flow-typed/
 flow-coverage/
 
 # Happypack
-.happypack
+.happypack/
