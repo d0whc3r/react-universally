@@ -26,7 +26,7 @@
     "lint": "eslint src",
     "audit": "nsp check package",
     "validate": "yarn audit && yarn lint",
-    "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls ; rimraf coverage/",
     "test": "node tools/scripts/tester.js --env=jsdom",
     "fixsass": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass"
   },
