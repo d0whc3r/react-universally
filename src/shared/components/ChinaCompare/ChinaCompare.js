@@ -5,12 +5,13 @@ import { Match, Miss } from 'react-router';
 import Helmet from 'react-helmet';
 import { CodeSplit } from 'code-split-component';
 import 'normalize.css/normalize.css';
+
+import { safeConfigGet } from '../../utils/config';
 import './globals.scss';
 import Error404 from './Error404';
 import Header from './Header';
-import { safeConfigGet } from '../../utils/config';
 
-function DemoApp() {
+function ChinaCompare() {
   return (
     <div style={{ padding: '10px' }}>
       {/*
@@ -61,4 +62,4 @@ function DemoApp() {
   );
 }
 
-export default DemoApp;
+export default ChinaCompare;

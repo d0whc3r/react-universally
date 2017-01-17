@@ -9,7 +9,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { rehydrateJobs } from 'react-jobs/ssr';
 import configureStore from '../shared/redux/configureStore';
 import ReactHotLoader from './components/ReactHotLoader';
-import DemoApp from '../shared/components/DemoApp';
+import ChinaCompare from '../shared/components/ChinaCompare';
 
 // Get the DOM Element that will host our React application.
 const container = document.querySelector('#app');
@@ -55,13 +55,13 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./index.js');
   // Any changes to our App will cause a hotload re-render.
   module.hot.accept(
-    '../shared/components/DemoApp',
-    () => renderApp(require('../shared/components/DemoApp').default),
+    '../shared/components/ChinaCompare',
+    () => renderApp(require('../shared/components/ChinaCompare').default),
   );
 }
 
 // Execute the first render of our app.
-renderApp(DemoApp);
+renderApp(ChinaCompare);
 
 // This registers our service worker for asset caching and offline support.
 // Keep this as the last item, just in case the code execution failed (thanks

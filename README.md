@@ -1,13 +1,3 @@
-<p align='center'>
-  <h1 align='center'>React, Universally</h1>
-  <p align='center'><img width='150' src='https://raw.githubusercontent.com/ctrlplusb/assets/master/logos/react-universally.png' /></p>
-  <p align='center'>A starter kit giving you the minimum requirements for a modern universal React application.</p>
-</p>
-
-## About
-
-This starter kit contains all the build tooling and configuration you need to kick off your next universal React project, whilst containing a minimal "project" set up allowing you to make your own architecture decisions (Redux/MobX etc).
-
 ## Features
 
   - 👀 `react` as the view.
@@ -39,8 +29,6 @@ Redux/MobX, data persistence, modern styling frameworks and all the other bells 
 ## Getting started
 
 ```bash
-git clone https://github.com/ctrlplusb/react-universally my-project
-cd my-project
 yarn
 yarn run development
 ```
@@ -48,8 +36,6 @@ yarn run development
 Or, if you aren't using [`yarn`](https://yarnpkg.com/):
 
 ```bash
-git clone https://github.com/ctrlplusb/react-universally my-project
-cd my-project
 npm install
 npm run development
 ```
