@@ -25,14 +25,14 @@ export class About extends Component {
   render() {
     return (
       <div style={{ textAlign: 'center' }}>
-        <Helmet title="About"/>
+        <Helmet title="About" />
 
         <p>Produced with ❤️ by...</p>
         <ul style={{ marginTop: '1rem' }}>
           {
             contributors.map(({ name, twitter }) =>
               <li key={name}>
-                <Contributor name={name} twitter={twitter}/>
+                <Contributor name={name} twitter={twitter} />
               </li>,
             )
           }

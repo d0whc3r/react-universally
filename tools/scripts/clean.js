@@ -7,6 +7,6 @@ import appRootDir from 'app-root-dir';
 import { exec } from '../utils';
 import config from '../../config';
 
-const cmd = `$(npm bin)/rimraf ${pathResolve(appRootDir.get(), config.buildOutputPath)} .happypack coverage`;
+const cmd = `$(npm bin)/rimraf ${pathResolve(appRootDir.get(), config.buildOutputPath)} .happypack coverage flow-coverage`;
 
 exec(cmd);

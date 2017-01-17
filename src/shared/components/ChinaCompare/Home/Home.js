@@ -8,7 +8,7 @@ export class Home extends Component {
   render() {
     return (
       <article>
-        <Helmet title="Home"/>
+        <Helmet title="Home" />
 
         <h2>{safeConfigGet(['welcomeMessage'])}</h2>
 
