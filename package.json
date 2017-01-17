@@ -11,7 +11,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "postinstall": "yarn flow:defs || npm run flow:defs",
+    "postinstall": "yarn flow:defs || npm run flow:defs ; yarn fixsass || npm run fixsass",
     "preinstall": "node tools/scripts/preinstall",
     "clean": "babel-node tools/scripts/clean",
     "development": "babel-node tools/development",
@@ -113,6 +113,7 @@
     "md5": "2.2.1",
     "node-notifier": "4.6.1",
     "node-sass": "4.3.0",
+    "now": "^2.0.3",
     "nsp": "^2.6.2",
     "postcss": "5.2.10",
     "postcss-cssnext": "2.9.0",
