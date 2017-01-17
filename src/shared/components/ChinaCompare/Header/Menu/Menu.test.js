@@ -1,13 +1,12 @@
 /* @flow */
-/* eslint-disable import/no-extraneous-dependencies */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import expect from 'expect';
+
 import Menu from './Menu';
 
-describe('<Home />', () => {
-  test('renders', () => {
-    const wrapper = shallow(<Menu />);
-    expect(wrapper).toMatchSnapshot();
+describe('<Menu />', () => {
+  it('should exist', () => {
+    expect(Menu).toExist();
   });
 });

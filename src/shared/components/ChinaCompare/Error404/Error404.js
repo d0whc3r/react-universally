@@ -1,11 +1,15 @@
 /* @flow */
 
-import React from 'react';
+import React, { Component } from 'react';
 
-function Error404() {
-  return (
-    <div>Sorry, that page was not found.</div>
-  );
+export class Error404 extends Component {
+  render() {
+    return (
+      <div>
+        <p>Sorry, that page was not found.</p>
+      </div>
+    );
+  }
 }
 
 export default Error404;

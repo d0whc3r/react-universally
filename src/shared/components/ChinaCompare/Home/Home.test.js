@@ -1,13 +1,20 @@
 /* @flow */
-/* eslint-disable import/no-extraneous-dependencies */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import ReactDOM from 'react-dom';
+import expect from 'expect';
+import $ from 'jquery';
+import TestUtils from 'react-addons-test-utils';
+
 import Home from './Home';
 
 describe('<Home />', () => {
-  test('renders', () => {
-    const wrapper = shallow(<Home />);
-    expect(wrapper).toMatchSnapshot();
+  it('should exist', () => {
+    expect(Home).toExist();
+  });
+  it('renders without crashing and search for h2 element', () => {
+    const app = TestUtils.renderIntoDocument(<Home/>);
+    const $el = $(ReactDOM.findDOMNode(app));
+    expect($el.find('h2').length).toBe(1);
   });
 });

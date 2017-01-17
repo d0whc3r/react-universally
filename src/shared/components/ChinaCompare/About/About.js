@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Contributor from './Contributor';
 
@@ -21,24 +21,25 @@ const contributors = [
   { name: 'Steven Truesdell', twitter: 'StruesCO' }
 ];
 
-function About() {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <Helmet title="About" />
+export class About extends Component {
+  render() {
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <Helmet title="About"/>
 
-      <p>Produced with ❤️ by...</p>
-
-      <ul style={{ marginTop: '1rem' }}>
-        {
-          contributors.map(({ name, twitter }) =>
-            <li key={name}>
-              <Contributor name={name} twitter={twitter} />
-            </li>,
-          )
-        }
-      </ul>
-    </div>
-  );
+        <p>Produced with ❤️ by...</p>
+        <ul style={{ marginTop: '1rem' }}>
+          {
+            contributors.map(({ name, twitter }) =>
+              <li key={name}>
+                <Contributor name={name} twitter={twitter}/>
+              </li>,
+            )
+          }
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default About;
