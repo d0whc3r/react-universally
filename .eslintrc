@@ -190,7 +190,7 @@
       2
     ],
     "no-eq-null": [
-      2
+      1
     ],
     "no-eval": [
       2
@@ -365,7 +365,7 @@
       2
     ],
     "no-undefined": [
-      2
+      1
     ],
     "no-unused-vars": [
       2

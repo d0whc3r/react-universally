@@ -14,7 +14,8 @@ import type { BuildOptions } from '../tools/types';
 // This protects us from accidentally including this configuration in our
 // client bundle. That would be a big NO NO to do. :)
 if (process.env.IS_CLIENT) {
-  throw new Error('You shouldn\'t be importing the `./config` directly into your \'client\' or \'shared\' source as the configuration object will get included in your client bundle. Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the \'client\' or \'shared\' source files to reference configuration values in a safe manner.');
+  throw new Error('You shouldn\'t be importing the `./config` directly into your \'client\' or \'shared\' source as the configuration object will get included in your client bundle. '
+    + 'Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the \'client\' or \'shared\' source files to reference configuration values in a safe manner.');
 }
 
 const config = {

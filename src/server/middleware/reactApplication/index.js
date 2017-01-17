@@ -13,7 +13,7 @@ import DemoApp from '../../../shared/components/DemoApp';
 import configureStore from '../../../shared/redux/configureStore';
 import config from '../../../../config';
 
-/**
+/*
  * An express middleware that is capabable of service our React application,
  * supporting server side rendering of the application.
  */

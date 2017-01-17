@@ -7,7 +7,7 @@ import appRootDir from 'app-root-dir';
 import type { $Request, $Response, NextFunction } from 'express';
 import config from '../../../config';
 
-/**
+/*
  * We need a middleware to intercept calls to our offline page to ensure that
  * inline scripts get the correct nonce value injected into them.  Otherwise
  * we can't provide client config values to the offline page.

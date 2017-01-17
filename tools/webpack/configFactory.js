@@ -15,7 +15,7 @@ import { removeEmpty, ifElse, merge, happyPackPlugin } from '../utils';
 import config, { clientConfig } from '../../config';
 import type { BuildOptions } from '../types';
 
-/**
+/*
  * This function is responsible for creating the webpack configuration for
  * all of our bundles.
  *
