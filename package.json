@@ -33,7 +33,7 @@
   "license": "MIT",
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/shared/**/*.{js,jsx}"
     ],
     "coverageDirectory": "./coverage",
     "testPathIgnorePatterns": [
