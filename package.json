@@ -11,7 +11,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "postinstall": "yarn flow:defs || npm run flow:defs ; yarn fixsass || npm run fixsass",
+    "postinstall": "yarn flow:defs || npm run flow:defs",
     "preinstall": "node tools/scripts/preinstall",
     "clean": "babel-node tools/scripts/clean",
     "development": "babel-node tools/development",
@@ -61,7 +61,7 @@
     "offline-plugin": "4.5.5",
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    "react-helmet": "3.3.1",
+    "react-helmet": "4.0.0",
     "react-hot-loader": "3.0.0-beta.6",
     "react-jobs": "0.3.0",
     "react-redux": "5.0.2",
