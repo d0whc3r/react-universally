@@ -11,11 +11,11 @@
     "node": ">=6"
   },
   "scripts": {
-    "postinstall": "yarn flow:defs",
+    "postinstall": "yarn flow:defs || npm run flow:defs",
     "preinstall": "node tools/scripts/preinstall",
     "clean": "babel-node tools/scripts/clean",
     "development": "babel-node tools/development",
-    "dev": "yarn development || npm development",
+    "dev": "yarn development || npm run development",
     "build": "cross-env NODE_ENV=production babel-node tools/scripts/build",
     "analyze": "babel-node tools/scripts/analyze",
     "start": "cross-env NODE_ENV=production node build/server",
