@@ -40,12 +40,12 @@ function Post({ post } : Props) {
 
 function mapStateToProps(state, { params: { id } }) {
   return {
-    post: FromState.getPostById(state, id),
+    post: FromState.getPostById(state, id)
   };
 }
 
 const mapActionsToProps = {
-  fetchPost: PostActions.fetch,
+  fetchPost: PostActions.fetch
 };
 
 // We use the "compose" function from redux (but the lodash/ramda/etc equivalent

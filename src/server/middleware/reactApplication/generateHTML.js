@@ -48,7 +48,7 @@ export default function generateHTML(args: Args) {
   const chunksForRender = [
     // We always manually add the main entry chunk for our client bundle. It
     // must always be the first item in the collection.
-    'index',
+    'index'
   ];
 
   if (codeSplitState) {

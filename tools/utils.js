@@ -23,7 +23,7 @@ export function happyPackPlugin({ name, loaders } : HappyPackConfig) {
     id: name,
     verbose: false,
     threads: 5,
-    loaders,
+    loaders
   });
 }
 
@@ -103,7 +103,7 @@ export function log(options : NotificationOptions) {
   if (options.notify) {
     notifier.notify({
       title,
-      message: options.message,
+      message: options.message
     });
   }
 

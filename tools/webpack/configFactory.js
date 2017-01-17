@@ -71,7 +71,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
     // ignored otherwise.
     node: {
       __dirname: true,
-      __filename: true,
+      __filename: true
     },
 
     // We don't want our node_modules to be bundled with any bundle that is
@@ -91,10 +91,10 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
               ['source-map-support/register'].concat(
                 // Then exclude any items specified in the config.
                 config.nodeBundlesIncludeNodeModuleFileTypes || [],
-              ),
+              )
           },
         ),
-      ),
+      )
     ]),
 
     // Source map settings.
@@ -150,8 +150,8 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
         // included this, which polyfill.io doesn't include.
         ifClient('regenerator-runtime/runtime'),
         // The source entry file for the bundle.
-        path.resolve(appRootDir.get(), bundleConfig.srcEntryFile),
-      ]),
+        path.resolve(appRootDir.get(), bundleConfig.srcEntryFile)
+      ])
     },
 
     // Bundle output configuration.
@@ -176,7 +176,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
         // The name format for any additional chunks produced for the bundle.
         chunkFilename: '[name]-[chunkhash].js',
         // When in node mode we will output our bundle as a commonjs2 module.
-        libraryTarget: ifNode('commonjs2', 'var'),
+        libraryTarget: ifNode('commonjs2', 'var')
       },
       // This is the web path under which our webpack bundled client should
       // be considered as being served from.
@@ -189,13 +189,13 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
           `http://${config.host}:${config.clientDevServerPort}${config.bundles.client.webPath}`,
           // Otherwise we expect our bundled client to be served from this path.
           bundleConfig.webPath,
-        ),
+        )
       })),
     ),
 
     resolve: {
       // These extensions are tried when resolving a file.
-      extensions: config.bundleSrcTypes.map(ext => `.${ext}`),
+      extensions: config.bundleSrcTypes.map(ext => `.${ext}`)
     },
 
     plugins: removeEmpty([
@@ -243,7 +243,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
         // Is this the "server" bundle?
         'process.env.IS_SERVER': JSON.stringify(isServer),
         // Is this a node bundle?
-        'process.env.IS_NODE': JSON.stringify(isNode),
+        'process.env.IS_NODE': JSON.stringify(isNode)
       }),
 
       // Generates a JSON file containing a map of all the output files for
@@ -254,7 +254,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
       ifClient(() =>
         new AssetsPlugin({
           filename: config.bundleAssetsFileName,
-          path: path.resolve(appRootDir.get(), bundleConfig.outputPath),
+          path: path.resolve(appRootDir.get(), bundleConfig.outputPath)
         }),
       ),
 
@@ -269,7 +269,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
       // configuration to ensure that the output is minimized/optimized.
       ifProdClient(
         () => new webpack.LoaderOptionsPlugin({
-          minimize: config.optimizeProductionBuilds,
+          minimize: config.optimizeProductionBuilds
         }),
       ),
 
@@ -281,15 +281,15 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             sourceMap: config.includeSourceMapsForProductionBuilds,
             compress: {
               screw_ie8: true,
-              warnings: false,
+              warnings: false
             },
             mangle: {
-              screw_ie8: true,
+              screw_ie8: true
             },
             output: {
               comments: false,
-              screw_ie8: true,
-            },
+              screw_ie8: true
+            }
           }),
         ),
       ),
@@ -298,7 +298,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
       // CSS files.
       ifProdClient(
         () => new ExtractTextPlugin({
-          filename: '[name]-[chunkhash].css', allChunks: true,
+          filename: '[name]-[chunkhash].css', allChunks: true
         }),
       ),
 
@@ -357,7 +357,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
                 // take care of that for us ensuring tree shaking takes place.
                 // NOTE: Make sure you use the same node version for development
                 // and production.
-                ifNode(['env', { targets: { node: true }, modules: false }]),
+                ifNode(['env', { targets: { node: true }, modules: false }])
               ].filter(x => x != null),
 
               plugins: [
@@ -385,15 +385,15 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
                       // which will ensure that our code split components can be
                       // resolved synchronously, being much more helpful for
                       // pre-rendering.
-                      mode: target,
-                    },
+                      mode: target
+                    }
                   ],
-                ),
-              ].filter(x => x != null),
+                )
+              ].filter(x => x != null)
             },
             buildOptions,
-          ),
-        }],
+          )
+        }]
       }),
 
       // HappyPack 'css' instance for development client.
@@ -405,17 +405,17 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             {
               path: 'css-loader',
               // Include sourcemaps for dev experience++.
-              query: { sourceMap: true },
+              query: { sourceMap: true }
             },
             { path: 'postcss-loader' },
             {
               path: 'sass-loader',
               options: {
                 outputStyle: 'expanded',
-                sourceMap: true,
-              },
-            },
-          ],
+                sourceMap: true
+              }
+            }
+          ]
         }),
       ),
 
@@ -445,15 +445,15 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
               keepClosingSlash: true,
               minifyJS: true,
               minifyCSS: true,
-              minifyURLs: true,
+              minifyURLs: true
             },
             inject: true,
             // We pass our config objects as values as they will be needed
             // by the template.
             custom: {
               config,
-              clientConfig,
-            },
+              clientConfig
+            }
           }),
         ),
       ),
@@ -519,7 +519,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
               // of injecting all of our client scripts into the body.
               // Please see the HtmlWebpackPlugin configuration above for more
               // information on this page.
-              navigateFallbackURL: `${bundleConfig.webPath}${config.serviceWorker.offlinePageFileName}`,
+              navigateFallbackURL: `${bundleConfig.webPath}${config.serviceWorker.offlinePageFileName}`
             },
             // According to the Mozilla docs, AppCache is considered deprecated.
             // @see https://mzl.la/1pOZ5wF
@@ -556,10 +556,10 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
                   );
                   return publicFileWebPaths;
                 }, []),
-              ),
+              )
           }),
         ),
-      ),
+      )
     ]),
     module: {
       rules: removeEmpty([
@@ -575,8 +575,8 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             ...bundleConfig.srcPaths.map(srcPath =>
               path.resolve(appRootDir.get(), srcPath),
             ),
-            ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
-          ]),
+            ifProdClient(path.resolve(appRootDir.get(), 'src/html'))
+          ])
         },
 
         // CSS
@@ -591,7 +591,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             // See the respective plugin within the plugins section for full
             // details on what loader is being implemented.
             ifDevClient({
-              loaders: ['happypack/loader?id=happypack-devclient-css'],
+              loaders: ['happypack/loader?id=happypack-devclient-css']
             }),
             // For a production client build we use the ExtractTextPlugin which
             // will extract our CSS into CSS files. We don't use happypack here
@@ -602,13 +602,13 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             ifProdClient(() => ({
               loader: ExtractTextPlugin.extract({
                 fallbackLoader: 'style-loader',
-                loader: 'css-loader?sourceMap&importLoaders=2!postcss-loader!sass-loader?outputStyle=expanded&sourceMap&sourceMapContents',
-              }),
+                loader: 'css-loader?sourceMap&importLoaders=2!postcss-loader!sass-loader?outputStyle=expanded&sourceMap&sourceMapContents'
+              })
             })),
             // When targetting the server we use the "/locals" version of the
             // css loader, as we don't need any css files for the server.
             ifNode({
-              loaders: ['css-loader/locals', 'postcss-loader', 'sass-loader'],
+              loaders: ['css-loader/locals', 'postcss-loader', 'sass-loader']
             }),
           ),
         ),
@@ -634,11 +634,11 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             // We only emit files when building a web bundle, for the server
             // bundle we only care about the file loader being able to create
             // the correct asset URLs.
-            emitFile: isClient,
-          },
-        })),
-      ]),
-    },
+            emitFile: isClient
+          }
+        }))
+      ])
+    }
   };
 
   // Apply the configuration middleware.

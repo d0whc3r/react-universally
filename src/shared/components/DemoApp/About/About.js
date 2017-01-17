@@ -18,7 +18,7 @@ const contributors = [
   { name: 'Lucian Lature', twitter: 'lucianlature' },
   { name: 'Steven Enten', twitter: 'steven_enten' },
   { name: 'Sean Matheson', twitter: 'controlplusb' },
-  { name: 'Steven Truesdell', twitter: 'StruesCO' },
+  { name: 'Steven Truesdell', twitter: 'StruesCO' }
 ];
 
 function About() {

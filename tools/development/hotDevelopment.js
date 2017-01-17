@@ -18,7 +18,7 @@ const vendorDLLsFailed = (err) => {
     title: 'vendorDLL',
     level: 'error',
     message: 'Unfortunately an error occured whilst trying to build the vendor dll(s) used by the development server. Please check the console for more information.',
-    notify: true,
+    notify: true
   });
   if (err) {
     console.error(err);
@@ -30,7 +30,7 @@ const initializeBundle = (name, bundleConfig) => {
     try {
       const webpackConfig = webpackConfigFactory({
         target: name,
-        mode: 'development',
+        mode: 'development'
       });
       // Install the vendor DLL config for the client bundle if required.
       if (name === 'client' && usesDevVendorDLL(bundleConfig)) {
@@ -44,7 +44,7 @@ const initializeBundle = (name, bundleConfig) => {
                 bundleConfig.outputPath,
                 `${bundleConfig.devVendorDLL.name}.json`,
               ),
-            ),
+            )
           }),
         );
       }
@@ -54,7 +54,7 @@ const initializeBundle = (name, bundleConfig) => {
         title: 'development',
         level: 'error',
         message: 'Webpack config is invalid, please check the console for more information.',
-        notify: true,
+        notify: true
       });
       console.error(err);
       throw err;

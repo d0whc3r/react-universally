@@ -36,7 +36,7 @@ function reactApplicationMiddleware(request: $Request, response: $Response) {
     // rely on the client to initialize and render the react application.
     const html = generateHTML({
       // Nonce which allows us to safely declare inline scripts.
-      nonce,
+      nonce
     });
     response.status(200).send(html);
     return;
@@ -100,8 +100,8 @@ function reactApplicationMiddleware(request: $Request, response: $Response) {
       // application appropriately.
       jobsState: {
         state,
-        STATE_IDENTIFIER,
-      },
+        STATE_IDENTIFIER
+      }
     });
 
     // Get the render result from the server render context.
