@@ -11,7 +11,7 @@ import webpackConfigFactory from '../webpack/configFactory';
 import config from '../../config';
 
 const usesDevVendorDLL = bundleConfig =>
-  bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled;
+  bundleConfig.devVendorDLL && bundleConfig.devVendorDLL.enabled;
 
 const vendorDLLsFailed = (err) => {
   log({

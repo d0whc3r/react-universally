@@ -29,7 +29,7 @@ export function happyPackPlugin({ name, loaders } : HappyPackConfig) {
 
 // Removes the empty items from the given array.
 export function removeEmpty(x : Array<any>) : Array<any> {
-  return x.filter(y => y != null);
+  return x.filter(y => !!y);
 }
 
 // This is a higher order function that accepts a boolean condition and will

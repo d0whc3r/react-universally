@@ -358,7 +358,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
                 // NOTE: Make sure you use the same node version for development
                 // and production.
                 ifNode(['env', { targets: { node: true }, modules: false }])
-              ].filter(x => x != null),
+              ].filter(x => !!x),
 
               plugins: [
                 // Required to support react hot loader.
@@ -389,7 +389,7 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
                     }
                   ],
                 )
-              ].filter(x => x != null)
+              ].filter(x => !!x)
             },
             buildOptions,
           )
