@@ -79,10 +79,8 @@ export function merge(...args : Array<?Object>) {
   return filtered.reduce((acc, cur) => {
     Object.keys(cur).forEach((key) => {
       if (typeof acc[key] === 'object' && typeof cur[key] === 'object') {
-        // eslint-disable-next-line no-param-reassign
         acc[key] = merge(acc[key], cur[key]);
       } else {
-        // eslint-disable-next-line no-param-reassign
         acc[key] = cur[key];
       }
     });

@@ -16,7 +16,7 @@ const container = document.querySelector('#app');
 // Create our Redux store.
 const store = configureStore(
   // Server side rendering would have mounted our state on this global.
-  window.__APP_STATE__, // eslint-disable-line no-underscore-dangle
+  window.__APP_STATE__,
 );
 
 function renderApp(TheApp) {

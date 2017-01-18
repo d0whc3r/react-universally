@@ -37,7 +37,7 @@ function configureStore(initialState: ?State) {
     // Enable Webpack hot module replacement for reducers. This is so that we
     // don't lose all of our current application state during hot reloading.
     module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers').default; // eslint-disable-line global-require
+      const nextRootReducer = require('../reducers').default;
 
       store.replaceReducer(nextRootReducer);
     });

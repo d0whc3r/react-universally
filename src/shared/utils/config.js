@@ -1,8 +1,4 @@
 /* @flow */
-/* eslint-disable no-console */
-/* eslint-disable import/global-require */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable no-underscore-dangle */
 
 // This resolves the correct configuration source based on the execution
 // environment.  For node we use the standard config file, however, for browsers
@@ -68,7 +64,7 @@ function resolveConfigForExecutionEnv() {
  * an error will be thrown indicating that a respective configuration value
  * could not be found at the given path.
  */
-export function safeConfigGet(path : Array<string>) : any {
+export default function safeConfigGet(path : Array<string>) : any {
   if (path.length === 0) {
     throw new Error('You must provide the path to the configuration value you would like to consume.');
   }

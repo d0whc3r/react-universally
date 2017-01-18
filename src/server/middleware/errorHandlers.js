@@ -1,5 +1,4 @@
 /* @flow */
-/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
 import type { Middleware, $Request, $Response, NextFunction } from 'express';

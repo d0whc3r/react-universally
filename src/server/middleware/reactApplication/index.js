@@ -29,7 +29,6 @@ function reactApplicationMiddleware(request: $Request, response: $Response) {
   // In this case traditional client side only rendering will occur.
   if (config.disableSSR) {
     if (process.env.NODE_ENV === 'development') {
-      // eslint-disable-next-line no-console
       console.log('==> Handling react route without SSR');
     }
     // SSR is disabled so we will just return an empty html page and will

@@ -8,12 +8,12 @@ function filterObjectLoop(obj : Object, filters : Object, basePropPath = '') : O
       if (typeof obj[key] !== 'object') {
         throw new Error(`Expected prop at path "${propPath}" to be an object`);
       }
-      acc[key] = filterObjectLoop(obj[key], filters[key], propPath); // eslint-disable-line no-param-reassign,max-len
+      acc[key] = filterObjectLoop(obj[key], filters[key], propPath);
     } else if (filters[key]) {
       if (typeof obj[key] === 'undefined') {
         throw new Error(`Filter set an "allow" on path "${propPath}", however, this path was not found on the source object.`);
       }
-      acc[key] = obj[key]; // eslint-disable-line no-param-reassign
+      acc[key] = obj[key];
     }
     return acc;
   }, {});
