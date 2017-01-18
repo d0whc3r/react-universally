@@ -64,7 +64,7 @@ function resolveConfigForExecutionEnv() {
  * an error will be thrown indicating that a respective configuration value
  * could not be found at the given path.
  */
-export default function safeConfigGet(path : Array<string>) : any {
+export function safeConfigGet(path : Array<string>) : any {
   if (path.length === 0) {
     throw new Error('You must provide the path to the configuration value you would like to consume.');
   }
@@ -83,3 +83,5 @@ export default function safeConfigGet(path : Array<string>) : any {
   }
   return result;
 }
+
+export default safeConfigGet;

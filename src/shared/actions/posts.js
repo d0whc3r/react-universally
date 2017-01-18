@@ -3,15 +3,15 @@
 import type { Post } from '../types/model';
 import type { Action, ThunkAction } from '../types/redux';
 
-function fetching(id: number) : Action {
+export function fetching(id: number) : Action {
   return { type: 'FETCHING_POST', payload: id };
 }
 
-function fetched(post: Post) : Action {
+export function fetched(post: Post) : Action {
   return { type: 'FETCHED_POST', payload: post };
 }
 
-export default function fetch(id: number) : ThunkAction {
+export function fetch(id: number) : ThunkAction {
   return (dispatch, getState, { axios }) => {
     dispatch(fetching(id));
 
@@ -27,3 +27,5 @@ export default function fetch(id: number) : ThunkAction {
       .then(() => true);
   };
 }
+
+export default fetch;
