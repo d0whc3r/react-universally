@@ -22,7 +22,7 @@
     "deploy": "babel-node tools/scripts/deploy",
     "flow": "babel-node tools/scripts/flow",
     "flow:defs": "flow-typed install --overwrite",
-    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text ; rimraf flow-coverage",
+    "flow:coverage": "flow-coverage-report -i 'src/shared/**/*.js' -t html -t json -t text ; rimraf flow-coverage",
     "lint": "eslint src",
     "audit": "nsp check package",
     "validate": "yarn audit && yarn lint",
