@@ -4,8 +4,9 @@ import React from 'react';
 import { Match, Miss } from 'react-router';
 import Helmet from 'react-helmet';
 import { CodeSplit } from 'code-split-component';
-import 'normalize.css/normalize.css';
 
+import 'normalize.css/normalize.css';
+import '../../../../semantic/dist/semantic.min.css';
 import { safeConfigGet } from '../../utils/config';
 import './globals.scss';
 import Error404 from './Error404';
