@@ -12,12 +12,12 @@ export class CustomHeader extends Component {
       <div className="ui inverted vertical masthead center aligned segment">
         <Grid columns={2} relaxed={true}>
           <Grid.Column>
-            <Container basic>
+            <Container>
               <Logo/>
             </Container>
           </Grid.Column>
           <Grid.Column>
-            <Container basic>
+            <Container>
               <Header inverted={true}>ChinaCompare</Header>
               <Header inverted={true} sub={true}>Price comparator</Header>
             </Container>

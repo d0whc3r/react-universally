@@ -168,13 +168,26 @@ const config = {
       },
       // Default content encoding.
       { name: 'charset', content: 'utf-8' },
+      { charset: 'utf-8' },
       // @see http://bit.ly/2f8IaqJ
-      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { 'http-equiv': 'content-type', content: 'text/html; charset=utf-8' },
+      { 'http-equiv': 'content-language', content: 'en' },
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
       // This is important to signify your application is mobile responsive!
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // Providing a theme color is good if you are doing a progressive
-      // web application.
-      { name: 'theme-color', content: '#2b2b2b' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'title', content: 'ChinaCompare' },
+      { name: 'description', content: 'Price comparator' },
+      { name: 'author', content: '?' },
+      { name: 'keywords', content: '' },
+      { name: 'language', content: 'English' },
+      { name: 'type', content: 'Website' },
+      { name: 'copyright', content: '?' },
+      { name: 'resource-type', content: '' },
+      { name: 'distribution', content: 'Global' },
+      { name: 'email', content: 'contact@chinacompare.com' },
+      { name: 'rating', content: 'General' },
+      { name: 'robots', content: 'INDEX,FOLLOW' },
+      { name: 'revisit-after', content: '7 Days' }
     ],
     links: [
       // When building a progressive web application you need to supply
@@ -274,16 +287,16 @@ const config = {
     // within the entry for each bundle you create and return the "express"
     // listener.
     /*
-    apiServer: {
-      srcEntryFile: './src/api/index.js',
-      srcPaths: [
-        './src/api',
-        './src/shared',
-        './config',
-      ],
-      outputPath: './build/api',
-    }
-    */
+     apiServer: {
+     srcEntryFile: './src/api/index.js',
+     srcPaths: [
+     './src/api',
+     './src/shared',
+     './config',
+     ],
+     outputPath: './build/api',
+     }
+     */
   },
 
   // These plugin definitions provide you with advanced hooks into customising
@@ -300,16 +313,16 @@ const config = {
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    babelConfig: (babelConfig : Object, buildOptions : BuildOptions) => {
+    babelConfig: (babelConfig: Object, buildOptions: BuildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
       // Example
       /*
-      if (target === 'server' && mode === 'development') {
-        babelConfig.presets.push('foo');
-      }
-     */
+       if (target === 'server' && mode === 'development') {
+       babelConfig.presets.push('foo');
+       }
+       */
 
       return babelConfig;
     },
@@ -323,23 +336,23 @@ const config = {
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    webpackConfig: (webpackConfig : Object, buildOptions : BuildOptions) => {
+    webpackConfig: (webpackConfig: Object, buildOptions: BuildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
       // Example:
       /*
-      if (target === 'server' && mode === 'development') {
-        webpackConfig.plugins.push(new MyCoolWebpackPlugin());
-      }
-      */
+       if (target === 'server' && mode === 'development') {
+       webpackConfig.plugins.push(new MyCoolWebpackPlugin());
+       }
+       */
 
       // Debugging/Logging Example:
       /*
-      if (target === 'server') {
-        console.log(JSON.stringify(webpackConfig, null, 4));
-      }
-      */
+       if (target === 'server') {
+       console.log(JSON.stringify(webpackConfig, null, 4));
+       }
+       */
 
       return webpackConfig;
     }
