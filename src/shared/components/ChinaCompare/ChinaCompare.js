@@ -14,11 +14,11 @@ import Header from './Header';
 
 function ChinaCompare() {
   return (
-    <div style={{ padding: '10px' }}>
+    <div className="pusher">
       {/*
-        All of the following will be injected into our page header.
-        @see https://github.com/nfl/react-helmet
-      */}
+       All of the following will be injected into our page header.
+       @see https://github.com/nfl/react-helmet
+       */}
       <Helmet
         htmlAttributes={safeConfigGet(['htmlPage', 'htmlAttributes'])}
         titleTemplate={safeConfigGet(['htmlPage', 'titleTemplate'])}
@@ -27,38 +27,34 @@ function ChinaCompare() {
         link={safeConfigGet(['htmlPage', 'links'])}
         script={safeConfigGet(['htmlPage', 'scripts'])}
       />
-
       <Header />
+      <div className="ui vertical stripe segment">
+        <div className="ui middle aligned stackable grid container">
+          <div className="row">
 
-      <Match
-        exactly
-        pattern="/"
-        render={routerProps =>
+            <Match
+              exactly
+              pattern="/"
+              render={routerProps =>
           <CodeSplit chunkName="home" modules={{ Home: require('./Home') }}>
             { ({ Home }) => Home && <Home {...routerProps} /> }
           </CodeSplit>
-        }
-      />
+              }
+            />
 
-      <Match
-        pattern="/posts"
-        render={routerProps =>
-          <CodeSplit chunkName="posts" modules={{ Posts: require('./Posts') }}>
-            { ({ Posts }) => Posts && <Posts {...routerProps} /> }
-          </CodeSplit>
-        }
-      />
-
-      <Match
-        pattern="/about"
-        render={routerProps =>
+            <Match
+              pattern="/about"
+              render={routerProps =>
           <CodeSplit chunkName="about" modules={{ About: require('./About') }}>
             { ({ About }) => About && <About {...routerProps} /> }
           </CodeSplit>
-        }
-      />
+              }
+            />
 
-      <Miss component={Error404} />
+            <Miss component={Error404}/>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

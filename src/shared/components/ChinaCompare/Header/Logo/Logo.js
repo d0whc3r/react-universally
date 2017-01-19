@@ -1,12 +1,16 @@
 /* @flow */
 
-import React from 'react';
+import React, { Component } from 'react';
+import { Image } from 'semantic-ui-react';
+
 import logo from './logo.png';
 
-function Logo() {
-  return (
-    <img src={logo} alt="Logo" style={{ width: '100px' }} />
-  );
+export class Logo extends Component {
+  render() {
+    return (
+      <Image src={logo} alt="Logo" size="tiny" verticalAlign="middle" shape="circular"/>
+    );
+  }
 }
 
 export default Logo;

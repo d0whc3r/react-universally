@@ -1,22 +1,31 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import Logo from './Logo';
-import Menu from './Menu';
+import { Container, Header, Grid, Divider } from 'semantic-ui-react';
 
-export class Header extends Component {
+import Logo from './Logo';
+// import Menu from './Menu';
+
+export class CustomHeader extends Component {
   render() {
     return (
-      <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-        <Logo />
-        <h1>React, Universally</h1>
-        <strong>
-          A starter kit giving you the minimum requirements for a modern universal react application.
-        </strong>
-        <Menu />
+      <div className="ui inverted vertical masthead center aligned segment">
+        <Grid columns={2} relaxed={true}>
+          <Grid.Column>
+            <Container basic>
+              <Logo/>
+            </Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container basic>
+              <Header inverted={true}>ChinaCompare</Header>
+              <Header inverted={true} sub={true}>Price comparator</Header>
+            </Container>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
 }
 
-export default Header;
+export default CustomHeader;
