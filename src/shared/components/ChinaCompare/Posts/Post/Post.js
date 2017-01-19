@@ -25,7 +25,7 @@ function Post({ post } : Props) {
 
   return (
     <div>
-      <Helmet title={`Posts - ${title}`} />
+      <Helmet title={`Posts - ${title}`}/>
 
       <h1>{title}</h1>
       <div>
@@ -65,13 +65,19 @@ const mapActionsToProps = {
 // return it which would then result in a synchronous execution of our component.
 export default compose(
   connect(mapStateToProps, mapActionsToProps),
-  withJob(({ params: { id }, post, fetchPost }) => {
-    if (post) {
-      // We already have a post, just return true.
-      return true;
+  withJob(
+    ({ params: { id }, post, fetchPost }) => {
+      if (post) {
+        // We already have a post, just return true.
+        return true;
+      }
+      // Execute the redux-thunk powered action that returns a Promise and
+      // fetches the post.
+      return fetchPost(id);
+    },
+    {
+      // Any time the post id changes we need to trigger the work.
+      shouldWorkAgain: (prevProps, nextProps) => prevProps.params.id !== nextProps.params.id
     }
-    // Execute the redux-thunk powered action that returns a Promise and
-    // fetches the post.
-    return fetchPost(id);
-  }),
+  )
 )(Post);
