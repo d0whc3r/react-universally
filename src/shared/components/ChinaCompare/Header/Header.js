@@ -10,19 +10,12 @@ export class CustomHeader extends Component {
   render() {
     return (
       <div className="ui inverted vertical masthead center aligned segment">
-        <Grid columns={2} relaxed={true}>
-          <Grid.Column>
-            <Container>
-              <Logo/>
-            </Container>
-          </Grid.Column>
-          <Grid.Column>
-            <Container>
-              <Header inverted={true}>ChinaCompare</Header>
-              <Header inverted={true} sub={true}>Price comparator</Header>
-            </Container>
-          </Grid.Column>
-        </Grid>
+        <Container>
+          <Header inverted={true}>
+            ChinaCompare
+            <Header inverted={true} sub={true}>Price comparator</Header>
+          </Header>
+        </Container>
       </div>
     );
   }

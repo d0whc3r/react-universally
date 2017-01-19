@@ -15,7 +15,7 @@ import Header from './Header';
 export class ChinaCompare extends Component {
   render() {
     return (
-      <div>
+      <div className="pusher">
         {/*
          All of the following will be injected into our page header.
          @see https://github.com/nfl/react-helmet
@@ -29,32 +29,28 @@ export class ChinaCompare extends Component {
           script={safeConfigGet(['htmlPage', 'scripts'])}
         />
         <Header />
-        <div className="pusher">
-          <div className="ui vertical stripe segment">
-            <div className="ui middle aligned stackable grid container">
-              <div className="row">
+        <div className="ui vertical stripe segment">
+          <div className="ui middle aligned stackable grid container">
+            <div className="row">
 
-                <Match
-                  exactly
-                  pattern="/"
-                  render={routerProps =>
+              <Match
+                exactly
+                pattern="/"
+                render={routerProps =>
           <CodeSplit chunkName="home" modules={{ Home: require('./Home') }}>
             { ({ Home }) => Home && <Home {...routerProps} /> }
-          </CodeSplit>
-              }
-                />
+          </CodeSplit>}
+              />
 
-                <Match
-                  pattern="/about"
-                  render={routerProps =>
+              <Match
+                pattern="/about"
+                render={routerProps =>
           <CodeSplit chunkName="about" modules={{ About: require('./About') }}>
             { ({ About }) => About && <About {...routerProps} /> }
-          </CodeSplit>
-              }
-                />
+          </CodeSplit>}
+              />
 
-                <Miss component={Error404}/>
-              </div>
+              <Miss component={Error404}/>
             </div>
           </div>
         </div>
